@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Form, Row, Col, Button, Container } from "react-bootstrap";
+import "../styles.css";
 
 const AddNewSubscription = () => {
   const [validated, setValidated] = useState(false);
@@ -39,7 +40,7 @@ const AddNewSubscription = () => {
     <Container>
       <h4 className="pb-3">Add New Subscription</h4>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
-        <Row className="mb-3">
+        <Row>
           <Form.Group as={Col} controlId="formGridName">
             <Form.Control
               required
@@ -64,7 +65,7 @@ const AddNewSubscription = () => {
             </Form.Control>
           </Form.Group>
         </Row>
-        <Row className="mb-3">
+        <Row>
           <Form.Group as={Col} className="mb-3" controlId="formGridDescription">
             {/* <Form.Label>Description</Form.Label> */}
             <Form.Control
@@ -77,7 +78,7 @@ const AddNewSubscription = () => {
           </Form.Group>
         </Row>
 
-        <Row className="mb-3">
+        <Row>
           <Form.Group as={Col} controlId="formGridcycle">
             <Form.Control
               required
@@ -104,7 +105,7 @@ const AddNewSubscription = () => {
           </Form.Group>
         </Row>
 
-        <Row className="mb-3">
+        <Row>
           <Form.Group as={Col} controlId="formGridDuration">
             <Form.Control
               required
@@ -151,10 +152,11 @@ const AddNewSubscription = () => {
             </Form.Control>
           </Form.Group>
         </Row>
-
-        <Button variant="primary" type="submit">
-          Add
-        </Button>
+        <Row className="mt-3">
+          <Button as={Col} className="mx-3" variant="primary" type="submit">
+            Add
+          </Button>
+        </Row>
       </Form>
     </Container>
   );

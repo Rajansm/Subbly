@@ -3,10 +3,10 @@ import { Card } from "react-bootstrap";
 const subscription = (props) => {
   return (
     <Card
+      className="mx-5 mb-2 mt-4"
       bg={`warning`}
       text={`light`}
       style={{ width: "auto" }}
-      className="mb-2"
     >
       <Card.Body>
         <Card.Title>{props.name}</Card.Title>

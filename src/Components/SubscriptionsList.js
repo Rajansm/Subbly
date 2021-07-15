@@ -61,9 +61,19 @@ const subsList = dummyList.map((subs) => (
 
 const SubscriptionList = (props) => {
   return (
-    <Container>
+    <Container className="px-0">
       <DashboardHeader />
-      <div className="pt-4">{subsList}</div>
+      <div
+        className="pt-2"
+        style={{
+          backgroundImage: "linear-gradient(rgb(245 245 245), #ffffff)",
+        }}
+      >
+        <h2 className="mx-5 mb-2 mt-4" style={{ fontFamily: "Secular One" }}>
+          All Subscriptions
+        </h2>
+        {subsList}
+      </div>
     </Container>
   );
 };
