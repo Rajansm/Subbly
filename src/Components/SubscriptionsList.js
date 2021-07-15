@@ -1,4 +1,6 @@
 import Subscription from "./Subscription";
+import DashboardHeader from "./DashboardHeader";
+import { Container } from "react-bootstrap";
 
 const dummyList = [
   {
@@ -43,14 +45,27 @@ const dummyList = [
   },
 ];
 
+const subsList = dummyList.map((subs) => (
+  <Subscription
+    key={subs.name}
+    name={subs.name}
+    description={subs.description}
+    category={subs.category}
+    firstBill={subs.firstBill}
+    cycle={subs.cycle}
+    duration={subs.duration}
+    remindMe={subs.remindMe}
+    currency={subs.currency}
+  />
+));
+
 const SubscriptionList = (props) => {
-  return dummyList.map((subs) => (
-    <Subscription
-      name={subs.name}
-      description={subs.description}
-      category={subs.category}
-    />
-  ));
+  return (
+    <Container>
+      <DashboardHeader />
+      <div className="pt-4">{subsList}</div>
+    </Container>
+  );
 };
 
 export default SubscriptionList;
