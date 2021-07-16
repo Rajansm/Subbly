@@ -3,19 +3,22 @@
   display: block;
   align-items: center;
   padding: 0px 32px;
-  color: #ffffff;
+  color: #9692cb;
   font-family: Raleway;
 }
 
 .navbar-links li:hover {
+  color: #ffffff;
   background-color: #4c4393;
 }
 
 .navbar-links li a {
+  color: #9692cb;
   font-size: 0.9rem;
 }
 
 .navbar-links li a:hover {
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -51,11 +54,6 @@
   align-items: center;
 }
 
-.navbar-links li a {
-  color: #ffffff;
-  /* text-transform: uppercase; */
-}
-
 .add-new {
   background-color: #41b14f;
   background-image: linear-gradient(#9ec14c, #41b14f);
@@ -81,6 +79,7 @@
 }
 
 .logo-text {
+  font-size: 1.75rem;
   font-weight: 600;
   padding: 0px 15px;
   color: #ffffff;
@@ -99,4 +98,10 @@
   background: #f6f7f9 !important;
   color: #748194 !important;
   font-size: 14px !important;
+}
+
+.page-title {
+  font-family: Raleway, Secular One;
+  font-size: 2rem;
+  margin: 1rem 2rem;
 }

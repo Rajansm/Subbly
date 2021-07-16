@@ -1,19 +1,24 @@
-import { Card } from "react-bootstrap";
+import { Card, Image } from "react-bootstrap";
+import AllSubscriptionBrands from "../Lists/Brands";
 
 const subscription = (props) => {
+  const brand = AllSubscriptionBrands.find((temp) => temp.name === props.name);
+
   return (
     <Card
-      className="mx-5 mb-2 mt-4"
-      bg={`warning`}
       text={`light`}
-      style={{ width: "auto" }}
+      style={{
+        width: "auto",
+        margin: "1rem 2rem",
+        border: "none",
+      }}
     >
-      <Card.Body>
-        <Card.Title>{props.name}</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
+      <Card.Body
+        style={{ backgroundColor: brand ? brand.brandColor : "#e4e4e4" }}
+      >
+        {brand && <Card.Title>{brand.displayName}</Card.Title>}
+        {brand && <Image src={brand.logoImagePathWhite} height="40" />}
+        <Card.Text>{props.description}</Card.Text>
       </Card.Body>
     </Card>
   );

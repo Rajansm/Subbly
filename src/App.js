@@ -13,17 +13,64 @@ import { Card, Image } from "react-bootstrap";
 import SubblyLogo from "./images/Subbly_logo.png";
 import "./styles.css";
 
+const dummyList = [
+  {
+    name: "Netflix",
+    description: "For watching Netflix movies",
+    startDate: "06-07-2021",
+    category: "Entertainment",
+    cycle: "Monthly",
+    duration: "Forever",
+    remindMe: "Monthly",
+    currency: "INR",
+  },
+  {
+    name: "AmazonPrime",
+    description: "For watching Amazon Prime",
+    startDate: "01-01-2021",
+    category: "Entertainment",
+    cycle: "Yearly",
+    duration: "Forever",
+    remindMe: "Yearly",
+    currency: "INR",
+  },
+  {
+    name: "AppleMusic",
+    description: "For listening to Songs",
+    startDate: "13-06-2021",
+    category: "Music",
+    cycle: "Monthly",
+    duration: "Forever",
+    remindMe: "Monthly",
+    currency: "INR",
+  },
+  {
+    name: "iCloud",
+    description: "For storing Data",
+    startDate: "14-02-2021",
+    category: "Utility",
+    cycle: "Monthly",
+    duration: "Forever",
+    remindMe: "Monthly",
+    currency: "INR",
+  },
+];
+
+const handleAddSub = (newSub) => {
+  dummyList.splice(0, 0, newSub);
+};
+
 const routes = [
   {
     path: "/",
     exact: true,
     sidebar: () => <div>Your Dashboard</div>,
-    main: () => <SubscriptionList />,
+    main: () => <SubscriptionList subsList={dummyList} />,
   },
   {
     path: "/add-new-subscription",
     sidebar: () => <div>You can add new Subscription from here</div>,
-    main: () => <AddNewSubscription />,
+    main: () => <AddNewSubscription onAddSub={handleAddSub} />,
   },
   {
     path: "/settings",
@@ -41,7 +88,9 @@ function App() {
             <Card.Body className="mx-3" style={{ padding: "0.75rem 1rem" }}>
               <Card.Text>
                 <Image src={SubblyLogo} rounded width="30" />
-                <h3 className="logo-text">Subbly</h3>
+                <span className="logo-text" style={{ marginBottom: "0" }}>
+                  Subbly
+                </span>
               </Card.Text>
             </Card.Body>
           </Card>
@@ -54,7 +103,6 @@ function App() {
               </li>
               <li className="pt-3 pb-3">
                 <FontAwesomeIcon icon={faCompass} size="lg" />
-                <FontAwesomeIcon className="mr-4" icon={["fas", "Compass"]} />
                 <Link className="pl-4" to="/">
                   Dashboard
                 </Link>
@@ -100,7 +148,9 @@ function App() {
             />
           ))}
         </div>
-        <div style={{ flex: 1, padding: "10px", backgroundColor: "#e4e4e4" }}>
+        <div
+          style={{ flex: 0.75, padding: "10px", backgroundColor: "#F4F6F8" }}
+        >
           <Sidebar />
         </div>
       </div>
