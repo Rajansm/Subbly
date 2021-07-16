@@ -27,7 +27,7 @@
 }
 
 .sidebar-panel {
-  background-color: #34495e;
+  background-color: #3e348c;
 }
 
 .navbar-container {
@@ -51,6 +51,7 @@
 }
 
 .align-center {
+  display: flex;
   align-items: center;
 }
 
@@ -90,7 +91,8 @@
 }
 
 .form-control {
-  font-weight: bold !important;
+  font-family: Poppins, "Secular One";
+  /* font-weight: bold !important; */
   height: 35px !important;
   padding: 6px 15px !important;
   border-radius: 5px !important;
@@ -101,7 +103,26 @@
 }
 
 .page-title {
-  font-family: Raleway, Secular One;
+  font-family: Poppins, Raleway, Secular One;
   font-size: 2rem;
   margin: 1rem 2rem;
+  font-weight: bold;
+}
+
+.sub-button {
+  border-radius: 0.15rem;
+  font-family: Poppins, Secular One;
+  padding: 4px 14px !important;
+}
+
+.modal-header {
+  border-bottom: none !important;
+}
+
+.modal-body {
+  padding-top: 0px !important;
+}
+
+.sub-card {
+  padding: 1rem 1.25rem !important;
 }

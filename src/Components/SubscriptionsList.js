@@ -1,8 +1,15 @@
+import { useState } from "react";
 import Subscription from "./Subscription";
 import DashboardHeader from "./DashboardHeader";
-import { Container } from "react-bootstrap";
+import AddNewSubscription from "./AddNewSubscription";
+import { Button, Container, Row, Col, Modal } from "react-bootstrap";
 
 const SubscriptionList = (props) => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const subsList = props.subsList.map((subs, index) => {
     return (
       <Subscription
@@ -29,9 +36,41 @@ const SubscriptionList = (props) => {
           backgroundImage: "linear-gradient(rgb(245 245 245), #ffffff)",
         }}
       >
-        <p className="page-title">All Subscriptions</p>
+        <Row>
+          <Col>
+            <p className="page-title">All Subscriptions</p>
+          </Col>
+          <Col
+            offset={5}
+            className="align-center"
+            style={{ flexDirection: "row-reverse", paddingRight: "2.75rem" }}
+          >
+            <Button className="sub-button" onClick={handleShow}>
+              Add New Subscription
+            </Button>
+          </Col>
+        </Row>
         {subsList}
       </div>
+      <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          {/* <Modal.Title>Modal title</Modal.Title> */}
+        </Modal.Header>
+        <Modal.Body>
+          <AddNewSubscription onAddSub={props.onAddSub} onClose={handleClose} />
+        </Modal.Body>
+        {/* <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary">Understood</Button>
+        </Modal.Footer> */}
+      </Modal>
     </Container>
   );
 };

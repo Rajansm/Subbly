@@ -65,13 +65,15 @@ const routes = [
     path: "/",
     exact: true,
     sidebar: () => <div>Your Dashboard</div>,
-    main: () => <SubscriptionList subsList={dummyList} />,
+    main: () => (
+      <SubscriptionList subsList={dummyList} onAddSub={handleAddSub} />
+    ),
   },
-  {
-    path: "/add-new-subscription",
-    sidebar: () => <div>You can add new Subscription from here</div>,
-    main: () => <AddNewSubscription onAddSub={handleAddSub} />,
-  },
+  // {
+  //   path: "/add-new-subscription",
+  //   sidebar: () => <div>You can add new Subscription from here</div>,
+  //   main: () => <AddNewSubscription onAddSub={handleAddSub} />,
+  // },
   {
     path: "/settings",
     sidebar: () => <div>Your Profile settings</div>,
@@ -94,13 +96,13 @@ function App() {
               </Card.Text>
             </Card.Body>
           </Card>
-          <div className="navbar-container">
+          <div className="navbar-container" style={{ marginTop: "3rem" }}>
             <ul className="navbar-links px-10 py-10">
-              <li className="pt-3 pb-3">
+              {/* <li className="pt-3 pb-3">
                 <Link to="/add-new-subscription" className="add-new">
                   Add New Subscription
                 </Link>
-              </li>
+              </li> */}
               <li className="pt-3 pb-3">
                 <FontAwesomeIcon icon={faCompass} size="lg" />
                 <Link className="pl-4" to="/">

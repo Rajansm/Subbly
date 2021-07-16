@@ -19,11 +19,11 @@ const DashboardHeader = (props) => {
       <Row className="align-items-center" style={{ paddingLeft: "2px" }}>
         <Col>
           <div className="form-group has-search mx-3 mt-3">
-            <FontAwesomeIcon
+            {/* <FontAwesomeIcon
               icon={faSearch}
               rotation={90}
               className="form-control-feedback"
-            />
+            /> */}
             <input
               type="text"
               className="form-control"

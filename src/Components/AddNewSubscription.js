@@ -37,19 +37,15 @@ const AddNewSubscription = (props) => {
       remindMe: remindOn,
       currency,
     });
-    history.replace("/");
+    // history.replace("/");
+    props.onClose();
   };
 
   return (
-    <Container className="px-0">
+    <Container className="px-0 pb-4">
       {/* <DashboardHeader /> */}
-      <div
-        className="pt-2"
-        style={{
-          backgroundImage: "linear-gradient(rgb(245 245 245), #ffffff)",
-        }}
-      >
-        <p className="page-title">Add New Subscription</p>
+      <div>
+        <p className="page-title pb-2 mt-0">Add New Subscription</p>
         <Form
           noValidate
           validated={validated}
@@ -172,8 +168,11 @@ const AddNewSubscription = (props) => {
               </Form.Control>
             </Form.Group>
           </Row>
-          <Row className="mt-3">
-            <Button className="mx-3" variant="primary" type="submit">
+          <Row className="mt-3" style={{ flexDirection: "row-reverse" }}>
+            <Button className="sub-button mx-3" onClick={props.onClose}>
+              Cancel
+            </Button>
+            <Button className="sub-button mx-3" type="submit">
               Add
             </Button>
           </Row>

@@ -1,4 +1,4 @@
-import { Card, Image } from "react-bootstrap";
+import { Card, Image, Row, Col } from "react-bootstrap";
 import AllSubscriptionBrands from "../Lists/Brands";
 
 const subscription = (props) => {
@@ -14,11 +14,21 @@ const subscription = (props) => {
       }}
     >
       <Card.Body
+        className="sub-card"
         style={{ backgroundColor: brand ? brand.brandColor : "#e4e4e4" }}
       >
         {brand && <Card.Title>{brand.displayName}</Card.Title>}
-        {brand && <Image src={brand.logoImagePathWhite} height="40" />}
-        <Card.Text>{props.description}</Card.Text>
+        <Row>
+          <Col xs={4}>
+            {brand && <Image src={brand.logoImagePathWhite} height="40" />}
+          </Col>
+          <Col xs={4}>
+            <Card.Text>{props.description}</Card.Text>
+          </Col>
+          <Col>
+            <Card.Text>{props.description}</Card.Text>
+          </Col>
+        </Row>
       </Card.Body>
     </Card>
   );
