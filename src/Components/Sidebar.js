@@ -3,7 +3,9 @@ import { Container } from "react-bootstrap";
 const Sidebar = () => {
   return (
     <Container fluid>
-      <h4>This will contain sidebar elements</h4>
+      <h4 style={{ fontFamily: "Poppins" }}>
+        This will contain sidebar elements
+      </h4>
     </Container>
   );
 };

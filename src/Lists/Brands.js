@@ -24,7 +24,7 @@ const AllSubscriptionBrands = [
     name: "iCloud",
     displayName: "iCloud",
     brandColor: "#2194F0",
-    logoImagePath: require("../images/appleicloud_white.png").default,
+    logoImagePath: require("../images/appleicloud.png").default,
     logoImagePathWhite: require("../images/appleicloud_white.png").default,
   },
 ];
