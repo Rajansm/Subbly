@@ -3,19 +3,19 @@ import AllSubscriptionBrands from "../Lists/Brands";
 
 const AllSubServices = (props) => {
   const allSubCards = AllSubscriptionBrands.map((brand, index) => {
-    const handleSelection = (name) => {
-      props.onSelectService(brand.name);
+    const handleSelection = () => {
+      props.onSelectService(brand);
     };
     return (
-      <Card style={{ border: "none !important" }}>
-        <Card.Body
-          onClick={handleSelection}
-          style={{
-            border: `3px solid ${brand.brandColor}`,
-            borderRadius: "0.5rem",
-            marginBottom: "0.5rem",
-          }}
-        >
+      <Card
+        onClick={handleSelection}
+        style={{
+          border: `2px solid ${brand.brandColor}`,
+          borderRadius: "0.5rem",
+          marginBottom: "0.5rem",
+        }}
+      >
+        <Card.Body style={{ padding: "1rem" }}>
           <Row>
             <Col xs={3}>
               <Image src={brand.logoImagePath} height="20" />

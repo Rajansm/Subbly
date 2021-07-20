@@ -14,8 +14,10 @@ const subscription = (props) => {
       }}
     >
       <Card.Body
-        className="sub-card"
-        style={{ backgroundColor: brand ? brand.brandColor : "#e4e4e4" }}
+        className="sub-card pa-3"
+        style={{
+          backgroundColor: brand ? brand.brandColor : "#e4e4e4",
+        }}
       >
         {brand && <Card.Title>{brand.displayName}</Card.Title>}
         <Row>

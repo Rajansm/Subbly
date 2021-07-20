@@ -38,7 +38,12 @@ const SubscriptionList = (props) => {
       >
         <Row>
           <Col>
-            <p className="page-title">All Subscriptions</p>
+            <p
+              className="page-title"
+              style={{ marginTop: "1rem", marginLeft: "2rem" }}
+            >
+              All Subscriptions
+            </p>
           </Col>
           <Col
             offset={5}
@@ -58,10 +63,10 @@ const SubscriptionList = (props) => {
         backdrop="static"
         keyboard={false}
       >
-        <Modal.Header closeButton>
+        <Modal.Header style={{ paddingBottom: "0" }} closeButton>
           {/* <Modal.Title>Modal title</Modal.Title> */}
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="mx-4 mb-4">
           <AddNewSubscription onAddSub={props.onAddSub} onClose={handleClose} />
         </Modal.Body>
         {/* <Modal.Footer>

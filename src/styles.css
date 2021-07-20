@@ -104,8 +104,9 @@
 
 .page-title {
   font-family: Poppins, Raleway, Secular One;
-  font-size: 2rem;
-  margin: 1rem 2rem;
+  font-size: 1.5rem;
+  margin: auto;
+  margin-bottom: 1rem;
   font-weight: bold;
 }
 
@@ -136,4 +137,14 @@
 
 .sub-card {
   padding: 1rem 1.25rem !important;
+}
+
+.change-link {
+  padding-right: 2px !important;
+  font-size: 12px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: start;
+  text-decoration: underline;
+  cursor: pointer;
 }
