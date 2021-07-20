@@ -63,7 +63,12 @@ const AddNewSubscription = (props) => {
 
   return (
     <>
-      <p className="page-title">Select Subscription</p>
+      {!selectedService.displayName && (
+        <p className="page-title">Select Subscription</p>
+      )}
+      {selectedService.displayName && (
+        <p className="page-title">Provide Subscription Details</p>
+      )}
       {!selectedService.displayName && (
         <AllSubServices onSelectService={handleSelectService} />
       )}

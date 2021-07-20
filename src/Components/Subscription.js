@@ -19,15 +19,18 @@ const subscription = (props) => {
           backgroundColor: brand ? brand.brandColor : "#e4e4e4",
         }}
       >
-        {brand && <Card.Title>{brand.displayName}</Card.Title>}
-        <Row>
-          <Col xs={4}>
+        <Row style={{ alignItems: "center" }}>
+          <Col xs={2}>
             {brand && <Image src={brand.logoImagePathWhite} height="40" />}
+          </Col>
+          <Col xs={3}>
+            {brand && <Card.Title>{brand.displayName}</Card.Title>}
+            {/* <Card.Text>{props.description}</Card.Text> */}
           </Col>
           <Col xs={4}>
             <Card.Text>{props.description}</Card.Text>
           </Col>
-          <Col>
+          <Col xs={3}>
             <Card.Text>{props.description}</Card.Text>
           </Col>
         </Row>

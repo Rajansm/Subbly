@@ -113,7 +113,7 @@
 .sub-button {
   border-radius: 2px !important;
   font-family: Poppins, Secular One;
-  padding: 11px 16px !important;
+  padding: 6px 16px !important;
   border-width: 1px !important;
   color: #fff !important;
   border-color: #f0134d !important;
@@ -136,7 +136,7 @@
 }
 
 .sub-card {
-  padding: 1rem 1.25rem !important;
+  padding: 0.8rem 1.25rem !important;
 }
 
 .change-link {

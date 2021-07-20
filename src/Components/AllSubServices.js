@@ -12,10 +12,10 @@ const AllSubServices = (props) => {
         style={{
           border: `2px solid ${brand.brandColor}`,
           borderRadius: "0.5rem",
-          marginBottom: "0.5rem",
+          marginBottom: "1rem",
         }}
       >
-        <Card.Body style={{ padding: "1rem" }}>
+        <Card.Body style={{ padding: "0.75rem 1rem" }}>
           <Row>
             <Col xs={3}>
               <Image src={brand.logoImagePath} height="20" />

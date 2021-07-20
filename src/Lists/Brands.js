@@ -27,6 +27,13 @@ const AllSubscriptionBrands = [
     logoImagePath: require("../images/appleicloud.png").default,
     logoImagePathWhite: require("../images/appleicloud_white.png").default,
   },
+  {
+    name: "Spotify",
+    displayName: "Spotify",
+    brandColor: "#1ED760",
+    logoImagePath: require("../images/spotify.png").default,
+    logoImagePathWhite: require("../images/spotify_white.png").default,
+  },
 ];
 
 export default AllSubscriptionBrands;

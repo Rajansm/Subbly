@@ -57,12 +57,7 @@ const SubscriptionList = (props) => {
         </Row>
         {subsList}
       </div>
-      <Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-      >
+      <Modal show={show} onHide={handleClose} backdrop="static" keyboard={true}>
         <Modal.Header style={{ paddingBottom: "0" }} closeButton>
           {/* <Modal.Title>Modal title</Modal.Title> */}
         </Modal.Header>
