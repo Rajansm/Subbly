@@ -16,6 +16,7 @@ import "./styles.css";
 const dummyList = [
   {
     name: "Netflix",
+    price: "18.99",
     description: "For watching Netflix movies",
     startDate: "06-07-2021",
     category: "Entertainment",
@@ -26,46 +27,51 @@ const dummyList = [
   },
   {
     name: "AmazonPrime",
+    price: "13.99",
     description: "For watching Amazon Prime",
     startDate: "01-01-2021",
     category: "Entertainment",
     cycle: "Yearly",
     duration: "Forever",
     remindMe: "Yearly",
-    currency: "INR",
+    currency: "AUD",
   },
   {
     name: "AppleMusic",
+    price: "8.99",
     description: "For listening to Songs",
     startDate: "13-06-2021",
     category: "Music",
     cycle: "Monthly",
     duration: "Forever",
     remindMe: "Monthly",
-    currency: "INR",
+    currency: "USD",
   },
   {
     name: "iCloud",
+    price: "10.00",
     description: "For storing Data",
     startDate: "14-02-2021",
     category: "Utility",
     cycle: "Monthly",
     duration: "Forever",
     remindMe: "Monthly",
-    currency: "INR",
+    currency: "CAD",
   },
   {
     name: "Netflix",
+    price: "18.99",
     description: "For watching Netflix movies",
     startDate: "06-07-2021",
     category: "Entertainment",
     cycle: "Monthly",
     duration: "Forever",
     remindMe: "Monthly",
-    currency: "INR",
+    currency: "EUR",
   },
   {
     name: "AmazonPrime",
+    price: "13.99",
     description: "For watching Amazon Prime",
     startDate: "01-01-2021",
     category: "Entertainment",
@@ -76,6 +82,7 @@ const dummyList = [
   },
   {
     name: "AppleMusic",
+    price: "10.99",
     description: "For listening to Songs",
     startDate: "13-06-2021",
     category: "Music",
@@ -86,46 +93,7 @@ const dummyList = [
   },
   {
     name: "iCloud",
-    description: "For storing Data",
-    startDate: "14-02-2021",
-    category: "Utility",
-    cycle: "Monthly",
-    duration: "Forever",
-    remindMe: "Monthly",
-    currency: "INR",
-  },
-  {
-    name: "Netflix",
-    description: "For watching Netflix movies",
-    startDate: "06-07-2021",
-    category: "Entertainment",
-    cycle: "Monthly",
-    duration: "Forever",
-    remindMe: "Monthly",
-    currency: "INR",
-  },
-  {
-    name: "AmazonPrime",
-    description: "For watching Amazon Prime",
-    startDate: "01-01-2021",
-    category: "Entertainment",
-    cycle: "Yearly",
-    duration: "Forever",
-    remindMe: "Yearly",
-    currency: "INR",
-  },
-  {
-    name: "AppleMusic",
-    description: "For listening to Songs",
-    startDate: "13-06-2021",
-    category: "Music",
-    cycle: "Monthly",
-    duration: "Forever",
-    remindMe: "Monthly",
-    currency: "INR",
-  },
-  {
-    name: "iCloud",
+    price: "8.99",
     description: "For storing Data",
     startDate: "14-02-2021",
     category: "Utility",
@@ -165,9 +133,9 @@ function App() {
   return (
     <BrowserRouter>
       <div style={{ display: "flex" }}>
-        <div className="sidebar-panel">
+        <div className="sidebar-panel" style={{ flex: 0.7 }}>
           <Card className="logo-card">
-            <Card.Body className="mx-3" style={{ padding: "0.75rem 1rem" }}>
+            <Card.Body style={{ padding: "1rem 3.5rem" }}>
               <Card.Text>
                 <Image src={SubblyLogo} rounded width="30" />
                 <span className="logo-text" style={{ marginBottom: "0" }}>
@@ -185,13 +153,21 @@ function App() {
               </li> */}
               <li className="pt-3 pb-3">
                 <FontAwesomeIcon icon={faCompass} size="lg" />
-                <Link className="pl-4" to="/">
+                <Link
+                  className="pl-4"
+                  to="/"
+                  style={{ fontFamily: "Poppins", fontSize: "16px" }}
+                >
                   Dashboard
                 </Link>
               </li>
               <li className="pt-3 pb-3">
                 <FontAwesomeIcon icon={faClock} size="lg" />
-                <Link className="pl-4" to="/">
+                <Link
+                  className="pl-4"
+                  to="/"
+                  style={{ fontFamily: "Poppins", fontSize: "16px" }}
+                >
                   Archived
                 </Link>
               </li>
@@ -207,13 +183,21 @@ function App() {
             <ul className="navbar-links px-10 py-10">
               <li className="pt-3 pb-3">
                 <FontAwesomeIcon icon={faUser} size="lg" />
-                <Link to="/" className="pl-4">
+                <Link
+                  to="/"
+                  className="pl-4"
+                  style={{ fontFamily: "Poppins", fontSize: "16px" }}
+                >
                   Account
                 </Link>
               </li>
               <li className="pt-3 pb-3">
                 <FontAwesomeIcon icon={faCog} size="lg" />
-                <Link className="pl-4" to="/settings">
+                <Link
+                  className="pl-4"
+                  to="/settings"
+                  style={{ fontFamily: "Poppins", fontSize: "16px" }}
+                >
                   Settings
                 </Link>
               </li>
@@ -230,11 +214,11 @@ function App() {
             />
           ))}
         </div>
-        <div
+        {/* <div
           style={{ flex: 0.75, padding: "10px", backgroundColor: "#F4F6F8" }}
         >
           <Sidebar />
-        </div>
+        </div> */}
       </div>
     </BrowserRouter>
   );

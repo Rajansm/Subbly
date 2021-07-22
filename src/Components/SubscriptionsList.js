@@ -15,10 +15,11 @@ const SubscriptionList = (props) => {
       <Subscription
         key={index}
         name={subs.name}
+        price={subs.price}
         displayName={subs.displayName}
         description={subs.description}
         category={subs.category}
-        firstBill={subs.firstBill}
+        firstBill={subs.startDate}
         cycle={subs.cycle}
         duration={subs.duration}
         remindMe={subs.remindMe}
@@ -40,15 +41,15 @@ const SubscriptionList = (props) => {
           <Col>
             <p
               className="page-title"
-              style={{ marginTop: "1rem", marginLeft: "2rem" }}
+              style={{ marginTop: "1rem", marginLeft: "2.5rem" }}
             >
-              All Subscriptions
+              Manage Subscriptions
             </p>
           </Col>
           <Col
             offset={5}
             className="align-center"
-            style={{ flexDirection: "row-reverse", paddingRight: "2.75rem" }}
+            style={{ flexDirection: "row-reverse", paddingRight: "3.5rem" }}
           >
             <Button className="sub-button" onClick={handleShow}>
               Add New Subscription

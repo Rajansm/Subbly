@@ -11,7 +11,7 @@ const AllSubServices = (props) => {
         onClick={handleSelection}
         style={{
           border: `2px solid ${brand.brandColor}`,
-          borderRadius: "0.5rem",
+          borderRadius: "0.3rem",
           marginBottom: "1rem",
         }}
       >

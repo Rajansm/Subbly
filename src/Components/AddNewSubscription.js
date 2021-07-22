@@ -1,4 +1,5 @@
 import { useState } from "react";
+import AllCurrencies from "../Lists/Currencies";
 import {
   Form,
   Row,
@@ -278,10 +279,13 @@ const AddNewSubscription = (props) => {
                         onChange={(e) => setCurrency(e.target.value)}
                       >
                         <option>Choose Currency</option>
-                        <option value="CAD">CAD</option>
-                        <option value="USD">USD</option>
-                        <option value="INR">INR</option>
-                        <option value="EURO">EURO</option>
+                        {AllCurrencies.map((curr, index) => {
+                          return (
+                            <option value={curr.cc} key={index}>
+                              {curr.symbol} - {curr.name}
+                            </option>
+                          );
+                        })}
                       </Form.Control>
                     </Form.Group>
                   </Row>
