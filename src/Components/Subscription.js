@@ -8,10 +8,12 @@ const subscription = (props) => {
   return (
     <Card
       text={`light`}
+      onClick={props.onClick}
       style={{
         width: "auto",
         margin: "1.3rem 2.5rem",
         border: "none",
+        fontFamily: "Poppins",
       }}
     >
       <Card.Body
@@ -37,32 +39,32 @@ const subscription = (props) => {
             <Row className="pl-4">
               <Col>
                 {brand && (
-                  <Card.Title>
+                  <p className="mb-0">
                     {
                       AllCurrencies.find((temp) => temp.cc === props.currency)
                         .symbol
                     }{" "}
                     {props.price}
-                  </Card.Title>
+                  </p>
                 )}
               </Col>
             </Row>
             <Row className="pl-4">
-              <Col>{brand && <Card.Text>{props.remindMe}</Card.Text>}</Col>
+              <Col>{brand && <p className="mb-0">{props.remindMe}</p>}</Col>
             </Row>
           </Col>
-          <Col xs={3}>
+          <Col xs={4} className="pl-5">
             <Row>
               <Col>
-                {brand && <Card.Text>Billing on: {props.firstBill}</Card.Text>}
+                {brand && <p className="mb-0">Billing on: {props.firstBill}</p>}
               </Col>
             </Row>
             <Row>
-              <Col>{brand && <Card.Text>{props.duration}</Card.Text>}</Col>
+              <Col>{brand && <p className="mb-0">{props.duration}</p>}</Col>
             </Row>
           </Col>
           <Col xs={2}>
-            <Card.Text className="pr-5">Active</Card.Text>
+            <p className="mb-0">Active</p>
           </Col>
         </Row>
       </Card.Body>

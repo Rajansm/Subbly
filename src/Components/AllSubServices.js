@@ -9,6 +9,7 @@ const AllSubServices = (props) => {
     return (
       <Card
         onClick={handleSelection}
+        key={index}
         style={{
           border: `2px solid ${brand.brandColor}`,
           borderRadius: "0.3rem",

@@ -24,8 +24,14 @@ const AddNewSubscription = (props) => {
   const [category, setCategory] = useState("");
   const [firstBillDate, setFirstBillDate] = useState("");
   const [cycle, setCycle] = useState("");
+  const [cycleNum, setCycleNum] = useState("");
+  const [cycleDesc, setCycleDesc] = useState("");
   const [duration, setDuraton] = useState("");
+  const [durationNum, setDuratonNum] = useState("");
+  const [durationDesc, setDuratonDesc] = useState("");
   const [remindOn, setRemindOn] = useState("");
+  const [remindOnNum, setRemindOnNum] = useState("");
+  const [remindOnDesc, setRemindOnDesc] = useState("");
   const [currency, setCurrency] = useState("");
 
   const handleSubmit = (event) => {
@@ -39,8 +45,9 @@ const AddNewSubscription = (props) => {
 
     setValidated(true);
     props.onAddSub({
-      name: selectedService,
+      name: selectedService.name,
       displayName: subName,
+      price: amount,
       description,
       category,
       startDate: firstBillDate,
@@ -59,7 +66,18 @@ const AddNewSubscription = (props) => {
 
   const handleSelectService = (service) => {
     console.log("selected service", service);
+    setSubName(service.name);
     setSelectedService(service);
+
+    //Initialize default values
+    setDuratonNum("1");
+    setDuratonDesc("Years");
+
+    setCycleNum("1");
+    setCycleDesc("Months");
+
+    setRemindOnNum("1");
+    setRemindOnDesc("Days");
   };
 
   return (
@@ -114,9 +132,7 @@ const AddNewSubscription = (props) => {
                   </h3>
                 </Col>
               </Row>
-
               <div>
-                {/* <p className="page-title mt-0">Add New Subscription</p> */}
                 <Form
                   noValidate
                   validated={validated}
@@ -142,152 +158,198 @@ const AddNewSubscription = (props) => {
                     </Form.Group>
                     <Col xs={4} />
                   </Row>
-                  <Row>
-                    <Form.Group
-                      as={Col}
-                      controlId="formGridName"
-                      style={{ marginBottom: "1.5rem" }}
-                    >
-                      <Form.Control
-                        required
-                        type="text"
-                        placeholder="Subscription Name"
-                        value={subName}
-                        onChange={(e) => setSubName(e.target.value)}
-                      />
-                    </Form.Group>
-                    <Form.Group
-                      as={Col}
-                      controlId="formGridCategory"
-                      style={{ marginBottom: "1.5rem" }}
-                    >
-                      <Form.Control
-                        required
-                        as="select"
-                        defaultValue="Choose Category"
-                        value={category}
-                        onChange={(e) => setCategory(e.target.value)}
-                      >
-                        <option>Choose Category</option>
-                        <option value="Entertainment">Entertainment</option>
-                        <option value="Music">Music</option>
-                        <option value="Utility">Utility</option>
-                      </Form.Control>
-                    </Form.Group>
+                  <Row className="mx-0">
+                    <Col xs={4} className="pl-0">
+                      <Form.Label className="pl-0">Category</Form.Label>
+                    </Col>
+                    <Col xs={8}>
+                      <Form.Group as={Row} controlId="formGridName">
+                        <Form.Control
+                          required
+                          as="select"
+                          defaultValue="Choose Category"
+                          value={category}
+                          onChange={(e) => setCategory(e.target.value)}
+                        >
+                          <option>Choose Category</option>
+                          <option value="Entertainment">Entertainment</option>
+                          <option value="Music">Music</option>
+                          <option value="Utility">Utility</option>
+                        </Form.Control>
+                      </Form.Group>
+                    </Col>
                   </Row>
-                  <Row>
-                    <Form.Group
-                      as={Col}
-                      controlId="formGridDescription"
-                      style={{ marginBottom: "1.5rem" }}
-                    >
-                      {/* <Form.Label>Description</Form.Label> */}
-                      <Form.Control
-                        required
-                        type="text"
-                        placeholder="Add description here"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                      />
-                    </Form.Group>
+                  <Row className="mx-0">
+                    <Col xs={4} className="pl-0">
+                      <Form.Label className="pl-0">Description</Form.Label>
+                    </Col>
+                    <Col xs={8}>
+                      <Form.Group as={Row} controlId="formGridDescription">
+                        <Form.Control
+                          required
+                          type="text"
+                          placeholder="Add description here"
+                          value={description}
+                          onChange={(e) => setDescription(e.target.value)}
+                        />
+                      </Form.Group>
+                    </Col>
                   </Row>
 
-                  <Row>
-                    <Form.Group
-                      as={Col}
-                      controlId="formGridcycle"
-                      style={{ marginBottom: "1.5rem" }}
-                    >
-                      <Form.Control
-                        required
-                        type="date"
-                        placeholder="Choose Billing Cycle"
-                        value={firstBillDate}
-                        onChange={(e) => setFirstBillDate(e.target.value)}
-                      />
-                    </Form.Group>
-                    <Form.Group
-                      as={Col}
-                      controlId="formGridCycle"
-                      style={{ marginBottom: "1.5rem" }}
-                    >
-                      <Form.Control
-                        required
-                        as="select"
-                        defaultValue="Choose Cycle"
-                        value={cycle}
-                        onChange={(e) => setCycle(e.target.value)}
-                      >
-                        <option>Choose Cycle</option>
-                        <option value="Daily">Daily</option>
-                        <option value="Weekly">Weekly</option>
-                        <option value="Monthly">Monthly</option>
-                        <option value="Yearly">Yearly</option>
-                      </Form.Control>
-                    </Form.Group>
+                  <Row className="mx-0">
+                    <Col xs={4} className="pl-0">
+                      <Form.Label className="pl-0">First Bill On</Form.Label>
+                    </Col>
+                    <Col xs={8}>
+                      <Form.Group as={Row} controlId="formGridFirstBill">
+                        <Form.Control
+                          required
+                          type="date"
+                          placeholder="Choose Billing Cycle"
+                          value={firstBillDate}
+                          onChange={(e) => setFirstBillDate(e.target.value)}
+                        />
+                      </Form.Group>
+                    </Col>
                   </Row>
 
-                  <Row>
-                    <Form.Group
-                      as={Col}
-                      controlId="formGridDuration"
-                      style={{ marginBottom: "1.5rem" }}
-                    >
-                      <Form.Control
-                        required
-                        as="select"
-                        defaultValue="Choose Duration"
-                        value={duration}
-                        onChange={(e) => setDuraton(e.target.value)}
-                      >
-                        <option>Choose Duration</option>
-                        <option value="1-month">1 Month</option>
-                        <option value="6-months">6 Months</option>
-                        <option value="1-year">1 Year</option>
-                        <option value="5-years">5 Years</option>
-                      </Form.Control>
-                    </Form.Group>
-                    <Form.Group
-                      as={Col}
-                      controlId="formGridRemindMe"
-                      style={{ marginBottom: "1.5rem" }}
-                    >
-                      <Form.Control
-                        required
-                        as="select"
-                        defaultValue="Remind me before"
-                        value={remindOn}
-                        onChange={(e) => setRemindOn(e.target.value)}
-                      >
-                        <option>Remind me before</option>
-                        <option value="1-day">1 Day</option>
-                        <option value="2-days">2 Days</option>
-                        <option value="1-week">1 Week</option>
-                        <option value="1-month">1 Month</option>
-                      </Form.Control>
-                    </Form.Group>
-                    <Form.Group
-                      as={Col}
-                      controlId="formGridCurrency"
-                      style={{ marginBottom: "1.5rem" }}
-                    >
-                      <Form.Control
-                        required
-                        as="select"
-                        defaultValue="INR"
-                        value={currency}
-                        onChange={(e) => setCurrency(e.target.value)}
-                      >
-                        <option>Choose Currency</option>
-                        {AllCurrencies.map((curr, index) => {
-                          return (
-                            <option value={curr.cc} key={index}>
-                              {curr.symbol} - {curr.name}
-                            </option>
-                          );
-                        })}
-                      </Form.Control>
-                    </Form.Group>
+                  <Row className="mx-0">
+                    <Col xs={4} className="pl-0">
+                      <Form.Label className="pl-0">Billing Cycle</Form.Label>
+                    </Col>
+                    <Col xs={2}>
+                      <Form.Group as={Row} controlId="formGridCycle">
+                        <Form.Control
+                          required
+                          as="select"
+                          defaultValue="1"
+                          value={cycleNum}
+                          onChange={(e) => setCycleNum(e.target.value)}
+                        >
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="5">5</option>
+                          <option value="30">30</option>
+                        </Form.Control>
+                      </Form.Group>
+                    </Col>
+                    <Col xs={6}>
+                      <Form.Group as={Row} controlId="formGridCycle">
+                        <Form.Control
+                          required
+                          as="select"
+                          defaultValue="Month"
+                          value={cycleDesc}
+                          onChange={(e) => setCycleDesc(e.target.value)}
+                        >
+                          <option>Choose Cycle</option>
+                          <option value="Days">Day(s)</option>
+                          <option value="Weeks">Week(s)</option>
+                          <option value="Months">Month(s)</option>
+                          <option value="Years">Year(s)</option>
+                        </Form.Control>
+                      </Form.Group>
+                    </Col>
+                  </Row>
+                  <Row className="mx-0">
+                    <Col xs={4} className="pl-0">
+                      <Form.Label className="pl-0">Subscribed For</Form.Label>
+                    </Col>
+                    <Col sm={2}>
+                      <Form.Group as={Row} controlId="formGridDuration">
+                        <Form.Control
+                          required
+                          as="select"
+                          defaultValue="Choose Duration"
+                          value={durationNum}
+                          onChange={(e) => setDuratonNum(e.target.value)}
+                        >
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="5">5</option>
+                        </Form.Control>
+                      </Form.Group>
+                    </Col>
+                    <Col xs={6}>
+                      <Form.Group as={Row} controlId="formGridDuration">
+                        <Form.Control
+                          required
+                          as="select"
+                          defaultValue="Choose Duration"
+                          value={durationDesc}
+                          onChange={(e) => setDuratonDesc(e.target.value)}
+                        >
+                          <option>Choose Duration</option>
+                          <option value="Days">Day(s)</option>
+                          <option value="Weeks">Week(s)</option>
+                          <option value="Months">Month(s)</option>
+                          <option value="Years">Year(s)</option>
+                        </Form.Control>
+                      </Form.Group>
+                    </Col>
+                  </Row>
+
+                  <Row className="mx-0">
+                    <Col xs={4} className="pl-0">
+                      <Form.Label className="pl-0">Remind Me</Form.Label>
+                    </Col>
+                    <Col xs={2}>
+                      <Form.Group as={Row} controlId="formGridRemindMe">
+                        <Form.Control
+                          required
+                          as="select"
+                          defaultValue="Remind me before"
+                          value={remindOnNum}
+                          onChange={(e) => setRemindOnNum(e.target.value)}
+                        >
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="5">5</option>
+                        </Form.Control>
+                      </Form.Group>
+                    </Col>
+                    <Col xs={6}>
+                      <Form.Group as={Row} controlId="formGridRemindMe">
+                        <Form.Control
+                          required
+                          as="select"
+                          defaultValue="Remind me before"
+                          value={remindOnDesc}
+                          onChange={(e) => setRemindOnDesc(e.target.value)}
+                        >
+                          <option>Remind me before</option>
+                          <option value="Days">Day(s)</option>
+                          <option value="Weeks">Week(s)</option>
+                          <option value="Months">Month(s)</option>
+                        </Form.Control>
+                      </Form.Group>
+                    </Col>
+                  </Row>
+
+                  <Row className="mx-0">
+                    <Col xs={4} className="pl-0">
+                      <Form.Label className="pl-0">Currency</Form.Label>
+                    </Col>
+                    <Col xs={8}>
+                      <Form.Group as={Row} controlId="formGridRemindMe">
+                        <Form.Control
+                          required
+                          as="select"
+                          defaultValue="INR"
+                          value={currency}
+                          onChange={(e) => setCurrency(e.target.value)}
+                        >
+                          <option>Choose Currency</option>
+                          {AllCurrencies.map((curr, index) => {
+                            return (
+                              <option value={curr.cc} key={index}>
+                                {curr.symbol} - {curr.name}
+                              </option>
+                            );
+                          })}
+                        </Form.Control>
+                      </Form.Group>
+                    </Col>
                   </Row>
                   <Row
                     className="mt-3"

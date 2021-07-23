@@ -10,6 +10,10 @@ const SubscriptionList = (props) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const handleEditSub = (id) => {
+    console.log("Clicked!!");
+  };
+
   const subsList = props.subsList.map((subs, index) => {
     return (
       <Subscription
@@ -24,6 +28,7 @@ const SubscriptionList = (props) => {
         duration={subs.duration}
         remindMe={subs.remindMe}
         currency={subs.currency}
+        onClick={handleEditSub}
       />
     );
   });
@@ -37,11 +42,11 @@ const SubscriptionList = (props) => {
           backgroundImage: "linear-gradient(rgb(245 245 245), #ffffff)",
         }}
       >
-        <Row>
+        <Row className="mx-0">
           <Col>
             <p
               className="page-title"
-              style={{ marginTop: "1rem", marginLeft: "2.5rem" }}
+              style={{ marginTop: "1rem", marginLeft: "1.75rem" }}
             >
               Manage Subscriptions
             </p>
@@ -49,7 +54,7 @@ const SubscriptionList = (props) => {
           <Col
             offset={5}
             className="align-center"
-            style={{ flexDirection: "row-reverse", paddingRight: "3.5rem" }}
+            style={{ flexDirection: "row-reverse", paddingRight: "2.5rem" }}
           >
             <Button className="sub-button" onClick={handleShow}>
               Add New Subscription

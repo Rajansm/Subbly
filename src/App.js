@@ -105,6 +105,7 @@ const dummyList = [
 ];
 
 const handleAddSub = (newSub) => {
+  console.log("sub >>>", newSub);
   dummyList.splice(0, 0, newSub);
 };
 
@@ -151,26 +152,22 @@ function App() {
                   Add New Subscription
                 </Link>
               </li> */}
-              <li className="pt-3 pb-3">
-                <FontAwesomeIcon icon={faCompass} size="lg" />
-                <Link
-                  className="pl-4"
-                  to="/"
-                  style={{ fontFamily: "Poppins", fontSize: "16px" }}
-                >
+              <Link to="/" style={{ fontFamily: "Poppins", fontSize: "16px" }}>
+                <li className="py-3">
+                  <FontAwesomeIcon
+                    icon={faCompass}
+                    size="lg"
+                    className="mr-3"
+                  />
                   Dashboard
-                </Link>
-              </li>
-              <li className="pt-3 pb-3">
-                <FontAwesomeIcon icon={faClock} size="lg" />
-                <Link
-                  className="pl-4"
-                  to="/"
-                  style={{ fontFamily: "Poppins", fontSize: "16px" }}
-                >
+                </li>
+              </Link>
+              <Link to="/" style={{ fontFamily: "Poppins", fontSize: "16px" }}>
+                <li className="py-3">
+                  <FontAwesomeIcon icon={faClock} size="lg" className="mr-3" />
                   Archived
-                </Link>
-              </li>
+                </li>
+              </Link>
             </ul>
           </div>
           <div
@@ -181,26 +178,21 @@ function App() {
             }}
           >
             <ul className="navbar-links px-10 py-10">
-              <li className="pt-3 pb-3">
-                <FontAwesomeIcon icon={faUser} size="lg" />
-                <Link
-                  to="/"
-                  className="pl-4"
-                  style={{ fontFamily: "Poppins", fontSize: "16px" }}
-                >
+              <Link to="/" style={{ fontFamily: "Poppins", fontSize: "16px" }}>
+                <li className="py-3">
+                  <FontAwesomeIcon icon={faUser} size="lg" className="mr-3" />
                   Account
-                </Link>
-              </li>
-              <li className="pt-3 pb-3">
-                <FontAwesomeIcon icon={faCog} size="lg" />
-                <Link
-                  className="pl-4"
-                  to="/settings"
-                  style={{ fontFamily: "Poppins", fontSize: "16px" }}
-                >
+                </li>
+              </Link>
+              <Link
+                to="/settings"
+                style={{ fontFamily: "Poppins", fontSize: "16px" }}
+              >
+                <li className="py-3">
+                  <FontAwesomeIcon icon={faCog} size="lg" className="mr-3" />
                   Settings
-                </Link>
-              </li>
+                </li>
+              </Link>
             </ul>
           </div>
         </div>

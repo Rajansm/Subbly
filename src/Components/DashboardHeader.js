@@ -16,8 +16,8 @@ const DashboardHeader = (props) => {
 
   return (
     <Form onSubmit={onSearch}>
-      <Row className="align-items-center" style={{ paddingLeft: "2px" }}>
-        <Col>
+      <Row className="align-items-center mx-0">
+        <Col style={{ padding: "3px 15px" }}>
           <div className="form-group has-search mx-3 mt-3">
             {/* <FontAwesomeIcon
               icon={faSearch}
