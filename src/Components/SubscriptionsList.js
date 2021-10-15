@@ -10,8 +10,11 @@ const SubscriptionList = (props) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const handleEditSub = (id) => {
-    console.log("Clicked!!");
+  const [editSub, setEditSub] = useState({});
+
+  const handleEditSub = (subToEdit) => {
+    console.log("editsub>>>", subToEdit);
+    setShow(true);
   };
 
   const subsList = props.subsList.map((subs, index) => {

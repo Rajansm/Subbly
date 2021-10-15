@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import SubscriptionList from "./Components/SubscriptionsList";
-import AddNewSubscription from "./Components/AddNewSubscription";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUser,

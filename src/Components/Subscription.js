@@ -5,10 +5,14 @@ import AllCurrencies from "../Lists/Currencies";
 const subscription = (props) => {
   const brand = AllSubscriptionBrands.find((temp) => temp.name === props.name);
 
+  const handleCardClick = () => {
+    props.onClick(props);
+  };
+
   return (
     <Card
       text={`light`}
-      onClick={props.onClick}
+      onClick={handleCardClick}
       style={{
         width: "auto",
         margin: "1.3rem 2.5rem",
@@ -33,7 +37,12 @@ const subscription = (props) => {
             )}
           </Col>
           <Col xs={2}>
-            {brand && <Card.Title>{brand.displayName}</Card.Title>}
+            {brand && (
+              <Card.Title>
+                {brand.displayName}
+                {props.index}
+              </Card.Title>
+            )}
           </Col>
           <Col xs={2}>
             <Row className="pl-4">
